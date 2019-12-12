@@ -1,4 +1,4 @@
-# baCkup
+# DOTFiles
 
 DOTFiles might be the most important files on your machine.
 
