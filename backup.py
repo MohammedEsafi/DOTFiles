@@ -6,7 +6,6 @@ import configparser
 from signal import signal, SIGINT
 import datetime
 import json
-import plistlib as plist
 
 usage = '''baCkup. keep your settings files in sync
 
@@ -67,10 +66,10 @@ def main():
 		__FORCE = False
 
 	# Read config files
-	baCkupconfig = configparser.ConfigParser()
-	baCkupconfig.read(os.path.expanduser('~/.baCkupconfig.ini'))
-	GIST_ID = re.search('%s(.*)%s' % ("\"", "\""), baCkupconfig['KEYS']['GIST_ID']).group(1)
-	ACCESS_TOKEN = re.search('%s(.*)%s' % ("\"", "\""), baCkupconfig['KEYS']['ACCESS_TOKEN']).group(1)
+        with open(os.path.expanduser('~/.baCkupconfig.ini'), 'r') as file:
+            baCkupconfig = file.splitlines()
+	    GIST_ID = re.search('%s(.*)%s' % ("\"", "\""), baCkupconfig[1]).group(1)
+	    ACCESS_TOKEN = re.search('%s(.*)%s' % ("\"", "\""), baCkupconfig[2]).group(1)
 
 	# Create a github instance
 	git = github.Github(ACCESS_TOKEN)
@@ -118,7 +117,7 @@ def main():
 					handler("the filename {}{}{}{} does not exist, or is not readable.".format(formats.italic, formats.yellow, path, formats.reset), "{}i".format(formats.light_yellow), False)
 		with open('cloudSettings', 'w+') as file:
 			json.dump(cloudSettings, file, indent=4)
-		if "\"\"" in baCkupconfig['KEYS']['GIST_ID']:
+		if not GIST_ID:
 			try:
 				gist = user.create_gist(False, files, "baCkup")
 			except:
