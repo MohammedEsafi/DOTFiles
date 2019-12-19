@@ -2,7 +2,6 @@ import github
 import os
 import re
 import sys
-import configparser
 from signal import signal, SIGINT
 import datetime
 import json
