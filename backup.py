@@ -57,6 +57,12 @@ def main():
 	# usage
 	if args["--help"] or args["-h"] or (len(argv) - 1 == 0):
 		print(usage, end='')
+		sys.exit(0)
+
+	# --version opt
+	if args["--version"]:
+		print('v1.0.0')
+		sys.exit(0)
 
 	# If we want to answer baCkup with "yes" for each question
 	if args["--force"]:
