@@ -46,7 +46,7 @@ ACCESS_TOKEN = "" ; YOUR TOKEN goes here
 GIST_ID = "" ; Gist ID ─── not required!
 ```
 
-In the file file named ```.config.ini``` stored at the root of your repository. add the files names to allow in the `[FILES_TO_SYNC]` section, one by line.
+In the file named ```.config.ini``` stored at the root of your repository. add the files names to allow in the `[FILES_TO_SYNC]` section, one by line.
 
 ```ini
 [FILES_TO_SYNC]
