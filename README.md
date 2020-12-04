@@ -22,15 +22,15 @@ $ pip3 install -r requirements.txt
 
 For authorization you need to create a new personal GitHub token.  To do this go to your Github account, then **Settings > Developer settings** and click **Personal access tokens**.
 
-![Step 1](DOC/new-token-1.png)
+![Step 1](Images/new-token-1.png)
 
 When you click the **Generate new token** button you enter the token creation screen. Here you should give the token a descriptive name and choose its *scopes*, which basically determine what the token is allowed to do.
 
-![Step 2](DOC/new-token-2.png)
+![Step 2](Images/new-token-2.png)
 
 You need to select only the Gist scope.
 
-![Step 3](DOC/new-token-3.png)
+![Step 3](Images/new-token-3.png)
 
 After clicking the **Generate token** button you're presented with the generated token. Remember to store it now, as GitHub won't show it to you anymore!
 
